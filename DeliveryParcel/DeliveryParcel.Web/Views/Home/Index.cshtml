@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DeliveryParcel.Models.OrderVm>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row justify-content-between">
+                <div class="col-md-auto">
+                    <p>
+                        <a asp-controller="Home" asp-action="Create" class="btn btn-success shadow"><i class="bi bi-plus-square"></i></a>
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table id="tblData" class="table table-hover col-md-6 fixed-table">
+                            <thead>
+                                <tr>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.Id)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.SenderFullName)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.SenderFullAddress)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.SenderCity)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.RecipientFullName)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.RecipientFullAddress)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.RecipientCity)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.Parcel.Wieght)
+                                    </th>
+                                    <th width="50%" class="text-center align-middle">
+                                        @Html.DisplayNameFor(model => model.ShippingDate)
+                                    </th>
+                                </tr>
+                            </thead>
+                            
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/js/order.js"></script>
+}
