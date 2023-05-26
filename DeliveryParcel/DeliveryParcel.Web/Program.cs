@@ -1,4 +1,5 @@
 using DeliveryParcel.Data.Infrastructure;
+using DeliveryParcel.Data.Initialization;
 using DeliveryParcel.Data.Interface;
 using DeliveryParcel.Service.Infrastructure;
 using DeliveryParcel.Service.Infrastructure.MapperConfiguration;
@@ -46,5 +47,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var dbContext = services.GetRequiredService<ApplicationDbContext>();
+    SeedData.Initialize(dbContext);
+}
 
 app.Run();

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DeliveryParcel.Data.Infrastructure\DeliveryParcel.Data.Infrastructure.csproj" />
+    <ProjectReference Include="..\DeliveryParcel.Data.Initialization\DeliveryParcel.Data.Initialization.csproj" />
     <ProjectReference Include="..\DeliveryParcel.Service.Infrastructure\DeliveryParcel.Service.Infrastructure.csproj" />
   </ItemGroup>
 
