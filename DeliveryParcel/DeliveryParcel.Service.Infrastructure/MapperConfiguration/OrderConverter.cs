@@ -18,7 +18,7 @@ namespace DeliveryParcel.Service.Infrastructure.MapperConfiguration
             destination.RecipientFullName = GetRecipientFullName(source);
             destination.RecipientFullAddress = GetRecipientFullAddress(source);
             destination.RecipientCity = source.RecipientAddress.City.Name;
-            destination.Parcel.Wieght = source.Parcel.Weight;
+            destination.ParcelWeight = source.Parcel.Weight.ToString() + " кг";
 
             return destination;
         }

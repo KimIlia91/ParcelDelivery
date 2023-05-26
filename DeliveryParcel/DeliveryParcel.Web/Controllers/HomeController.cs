@@ -23,7 +23,6 @@ namespace DeliveryParcel.Web.Controllers
             return View(orders.Result);
         }
 
-        
         public IActionResult Create()
         {
             return View();
@@ -56,6 +55,13 @@ namespace DeliveryParcel.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            var orderResponse = await _orderService.GetAllOrdesAsync();
+            return Json(new { Data = orderResponse.Result });
         }
     }
 }

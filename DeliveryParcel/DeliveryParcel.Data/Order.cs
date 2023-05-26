@@ -1,4 +1,6 @@
-﻿namespace DeliveryParcel.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DeliveryParcel.Data
 {
     /// <summary>
     /// Сущность заказа.

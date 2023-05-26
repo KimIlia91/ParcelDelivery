@@ -16,6 +16,7 @@ namespace DeliveryParcel.Models
 
         [Required(ErrorMessage = "Обязательное поле")]
         [Display(Name = "Дата отправки")]
+        [DataType(DataType.Date)]
         public DateTime ShippingDate { get; set; }
     }
 }

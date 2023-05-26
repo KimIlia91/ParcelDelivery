@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DeliveryParcel.Models
 {
@@ -13,13 +14,16 @@ namespace DeliveryParcel.Models
         public string Street { get; set; } = null!;
 
         [Required(ErrorMessage = "Обязательное поле.")]
-        [Display(Name = "Номер дома")]
+        [Display(Name = "Дом")]
         public string House { get; set; } = null!;
 
-        [Display(Name = "Номер этажа")]
-        public int Flat { get; set; }
+        [Required(ErrorMessage = "Обязательное поле")]
+        [Display(Name = "Этаж")]
+        [DefaultValue(1)]
+        [Range(1, uint.MaxValue, ErrorMessage = "Значение должно быть не меньше нуля")]
+        public uint Flat { get; set; }
 
-        [Display(Name = "Номер квартиры")]
+        [Display(Name = "Квартира")]
         public string? Appartament { get; set; }
     }
 }

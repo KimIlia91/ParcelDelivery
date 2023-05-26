@@ -18,7 +18,7 @@
         /// <summary>
         /// Номер этажа.
         /// </summary>
-        public int Flat { get; set; }
+        public uint Flat { get; set; }
 
         /// <summary>
         /// Номер квартиры.

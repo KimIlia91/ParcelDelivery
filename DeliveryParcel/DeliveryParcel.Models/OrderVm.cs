@@ -26,9 +26,10 @@ namespace DeliveryParcel.Models
         public string RecipientCity { get; set; } = null!;
 
         [Display(Name = "Вес посылки")]
-        public ParcelVm Parcel { get; set; } = new ParcelVm();
+        public string ParcelWeight { get; set; } = null!;
 
         [Display(Name = "Дата отправки")]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
         public DateTime ShippingDate { get; set; }
     }
 }

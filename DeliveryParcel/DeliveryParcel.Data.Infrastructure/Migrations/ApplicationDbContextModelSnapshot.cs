@@ -37,8 +37,8 @@ namespace DeliveryParcel.Data.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Flat")
-                        .HasColumnType("int");
+                    b.Property<long>("Flat")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("House")
                         .IsRequired()

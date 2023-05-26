@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryParcel.Service.Infr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{23D293BF-399E-4F14-AD03-1AD9EDBC2F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryParcel.Models", "DeliveryParcel.Models\DeliveryParcel.Models.csproj", "{629101C5-A3FC-4037-BD1D-731096174928}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliveryParcel.Models", "DeliveryParcel.Models\DeliveryParcel.Models.csproj", "{629101C5-A3FC-4037-BD1D-731096174928}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
