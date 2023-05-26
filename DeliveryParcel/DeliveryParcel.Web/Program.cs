@@ -52,7 +52,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var dbContext = services.GetRequiredService<ApplicationDbContext>();
-    SeedData.Initialize(dbContext);
+    await SeedData.Initialize(dbContext);
 }
 
 app.Run();

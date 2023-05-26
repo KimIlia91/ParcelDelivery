@@ -22,4 +22,3 @@ namespace DeliveryParcel.Service.Interfaces
         Task<OperationResponse<Guid>> CreateClientAsync(ClientVm clientVm);
     }
 }
-Ы

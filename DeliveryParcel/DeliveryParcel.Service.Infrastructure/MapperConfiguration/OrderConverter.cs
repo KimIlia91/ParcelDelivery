@@ -56,7 +56,7 @@ namespace DeliveryParcel.Service.Infrastructure.MapperConfiguration
         {
             var recipientFullAddress = "ул. " + source.RecipientAddress.Street + ", д. " + source.RecipientAddress.House + ", эт. " + source.RecipientAddress.Flat;
             if (!string.IsNullOrEmpty(source.RecipientAddress.Appartament))
-                recipientFullAddress = ", кв. " + source.RecipientAddress.Appartament;
+                recipientFullAddress += ", кв. " + source.RecipientAddress.Appartament;
 
             return recipientFullAddress;
         }

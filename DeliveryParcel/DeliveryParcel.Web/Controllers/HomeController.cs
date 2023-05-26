@@ -25,6 +25,12 @@ namespace DeliveryParcel.Web.Controllers
             _orderService = orderService;
         }
 
+        public async Task<IActionResult> Index()
+        {
+            var orderResponse = await _orderService.GetAllOrdesAsync();
+            return View(orderResponse.Result);
+        }
+
         /// <summary>
         /// Обработчик GET-запроса для получения всех заказов в табличку из библиотеки CloudTasbles.
         /// </summary>
@@ -36,7 +42,7 @@ namespace DeliveryParcel.Web.Controllers
             return Json(new { Data = orderResponse.Result });
         }
 
-        /// <summary>
+        /// <summary>z
         /// Обработчик GET-запроса для создания заказа.
         /// </summary>
         /// <returns>Результат операции в виде представления.</returns>
