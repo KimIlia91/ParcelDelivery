@@ -31,7 +31,7 @@
         public Guid CityId { get; set; }
 
         /// <summary>
-        /// Свойсво навигации для города.
+        /// Связь с сущностью город.
         /// </summary>
         public City City { get; set; } = null!;
     }

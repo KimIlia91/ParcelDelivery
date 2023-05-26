@@ -6,6 +6,9 @@ using DeliveryParcel.Service.Interfaces;
 
 namespace DeliveryParcel.Service.Infrastructure
 {
+    /// <summary>
+    /// Сервис для работы с заказами.
+    /// </summary>
     public class OrderService : IOrderService
     {
         private readonly IOrderRepository _orderRepository;
@@ -14,6 +17,14 @@ namespace DeliveryParcel.Service.Infrastructure
         private readonly IParcelService _parcelService;
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// Конструктор сервиса.
+        /// </summary>
+        /// <param name="orderRepository">Репозиторий заказа.</param>
+        /// <param name="clientService">Репозиторий клиента.</param>
+        /// <param name="addressService">Репозиторий адреса.</param>
+        /// <param name="parcelService">Репозиторий послыки.</param>
+        /// <param name="mapper">Маппер</param>
         public OrderService(
             IOrderRepository orderRepository, 
             IClientService clientService, 
@@ -28,6 +39,7 @@ namespace DeliveryParcel.Service.Infrastructure
             _mapper = mapper;
         }
 
+        /// <inheritdoc/>
         public async Task<OperationResponse<IEnumerable<OrderVm>>> GetAllOrdesAsync()
         {
             var orders = await _orderRepository.GetAllOrdersAsync();
@@ -35,7 +47,8 @@ namespace DeliveryParcel.Service.Infrastructure
             return new OperationResponse<IEnumerable<OrderVm>> { IsSuccess = true, Result =  orderVms };
         }
 
-        public async Task<OperationResponse<OrderCreateVm>> MakeOrderAsync(OrderCreateVm orderVm)
+        /// <inheritdoc/>
+        public async Task<OperationResponse<Guid>> MakeOrderAsync(OrderCreateVm orderVm)
         {
             var senderAddressResponse = await _addressService.GetAddressIdAsync(orderVm.SenderAddress);
             if (!senderAddressResponse.IsSuccess)
@@ -65,7 +78,7 @@ namespace DeliveryParcel.Service.Infrastructure
                 CreatedDate = DateTime.UtcNow
             };
             await _orderRepository.AddEntityAsync(order);
-            return new OperationResponse<OrderCreateVm> { IsSuccess = true };
+            return new OperationResponse<Guid> { IsSuccess = true, Result = order.Id };
         }
     }
 }

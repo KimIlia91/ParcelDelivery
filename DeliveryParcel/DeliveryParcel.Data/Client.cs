@@ -2,6 +2,9 @@
 
 namespace DeliveryParcel.Data
 {
+    /// <summary>
+    /// Сущность клиента.
+    /// </summary>
     public class Client : BaseEntity
     {
         /// <summary>

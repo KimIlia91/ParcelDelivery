@@ -5,15 +5,23 @@ using DeliveryParcel.Service.Interfaces;
 
 namespace DeliveryParcel.Service.Infrastructure
 {
+    /// <summary>
+    /// Сервис для работы с клиентами.
+    /// </summary>
     public class ClientService : IClientService
     {
         private readonly IBaseRepository<Client> _clientRepository;
 
+        /// <summary>
+        /// Конструктор сервиса клиент.
+        /// </summary>
+        /// <param name="clientRepository">Репозиторий клиента.</param>
         public ClientService(IBaseRepository<Client> clientRepository)
         {
             _clientRepository = clientRepository;
         }
 
+        /// <inheritdoc/>
         public async Task<OperationResponse<Guid>> CreateClientAsync(ClientVm clientVm)
         {
             var client = new Client
@@ -27,6 +35,7 @@ namespace DeliveryParcel.Service.Infrastructure
             return new OperationResponse<Guid> { IsSuccess = true, Result = client.Id };
         }
 
+        /// <inheritdoc/>
         public async Task<OperationResponse<Guid>> GetClientIdAsync(ClientVm clientVm)
         {
             var normFirstName = string.Join(" ", clientVm.FirstName.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries)).ToUpper();

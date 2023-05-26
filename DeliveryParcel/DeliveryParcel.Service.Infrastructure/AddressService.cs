@@ -5,17 +5,26 @@ using DeliveryParcel.Service.Interfaces;
 
 namespace DeliveryParcel.Service.Infrastructure
 {
+    /// <summary>
+    /// Сервис для работы с адресами.
+    /// </summary>
     public class AddressService : IAddressService
     {
         private readonly IBaseRepository<Address> _addressRepository;
         private readonly ICityService _cityService;
 
+        /// <summary>
+        /// Конструктор сервиса.
+        /// </summary>
+        /// <param name="addressRepository">Репозиторий адреса.</param>
+        /// <param name="cityService">Сервис города.</param>
         public AddressService(IBaseRepository<Address> addressRepository, ICityService cityService)
         {
             _addressRepository = addressRepository;
             _cityService = cityService;
         }
 
+        /// <inheritdoc/>
         public async Task<OperationResponse<Guid>> CreateAddressAsync(AddressVm addressVm)
         {
             var operationResponse = await _cityService.GetCityIdByNameAsync(addressVm.CityName);
@@ -35,6 +44,7 @@ namespace DeliveryParcel.Service.Infrastructure
             return new OperationResponse<Guid> { IsSuccess = true, Result = address.Id };
         }
 
+        /// <inheritdoc/>
         public async Task<OperationResponse<Guid>> GetAddressIdAsync(AddressVm addressVm)
         {
             var cityName = string.Join(" ", addressVm.CityName.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries)).ToUpper();
