@@ -14,9 +14,3 @@
 <div align="center">
   <img src="https://github.com/KimIlia91/ParcelDelivery/assets/120381464/931f6d46-36ec-47ff-98f8-bc5ce3ab6116" alt="2023-05-27_00-15-17">
 </div>
-
-### Диаграмма базы данных
-
-<div align="center">
-  <img src="https://github.com/KimIlia91/ParcelDelivery/assets/120381464/462a1e17-1d00-4069-874f-659609c1cca6" alt="2023-05-26_03-35-37">
-</div>
